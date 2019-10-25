@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-	OPZ Primerchik("3+4*3+5*9*(8-6)");
+	OPZ Primerchik("((3+4)*3+5)*9*(8-6)/2+5*9-3");
 	Primerchik.Calculate();
 	cout << Primerchik.GetResult()<<endl;
 	system("pause");

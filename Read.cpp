@@ -40,8 +40,14 @@
 				if (((Simv.top().GetPrioritet() == o.GetPrioritet()) || (Simv.top().GetPrioritet() > o.GetPrioritet())) && (o.GetZnak() != '(')) {
 					primerOpz += Simv.top().GetZnak();
 					Simv.pop();
-					
+					if (!Simv.empty()) {
+						if (Simv.top().GetZnak() == o.GetZnak()) {
+							primerOpz += Simv.top().GetZnak();
+							Simv.pop();
+						}
+					}
 					Simv.push(o);
+				
 				}
 				if ((Simv.top().GetPrioritet() < o.GetPrioritet()) || (o.GetZnak() == '(')) {
 					Simv.push(o);
