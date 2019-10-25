@@ -6,10 +6,18 @@
 OPZ::OPZ(std::string primer) {
 		this->primer = primer;
 	}
+OPZ::OPZ()
+{
+}
+void OPZ::SetOPZ(std::string primer)
+{
+	this->primer = primer;
+}
 	void OPZ::Calculate() {
 		Read Reader;
 		Reader.ReadPrimer(primer);
 		std::string opz = Reader.GetString();
+		opz_redi == opz;
 		for (int i = 0; i < opz.length(); i++) {
 			if (isdigit(opz[i])) {
 				chisla.push(((int)opz[i]-'0'));
@@ -46,6 +54,11 @@ OPZ::OPZ(std::string primer) {
 	}
 	int OPZ::GetResult() {
 		return result;
+	}
+
+	std::string OPZ::getOpz()
+	{
+		return opz_redi;
 	}
 
 

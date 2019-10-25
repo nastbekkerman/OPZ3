@@ -25,7 +25,7 @@
 			o.SetPrioritet(3);
 		}
 
-		if (!Simv.empty()) {
+		if (!Simv.empty()&&(o.GetZnak() != '(')) {
 			bool flag = false;
 			if (o.GetZnak() == CLOSEBRACKET) {
 
@@ -37,11 +37,11 @@
 				flag = true;
 			}
 			if (!flag) {
-				if (((Simv.top().GetPrioritet() == o.GetPrioritet()) || (Simv.top().GetPrioritet() > o.GetPrioritet())) && (o.GetZnak() != '(')) {
+				if (((Simv.top().GetPrioritet() == o.GetPrioritet()) || (Simv.top().GetPrioritet() > o.GetPrioritet()))) {
 					primerOpz += Simv.top().GetZnak();
 					Simv.pop();
 					if (!Simv.empty()) {
-						if (Simv.top().GetZnak() == o.GetZnak()) {
+						if (Simv.top().GetPrioritet() == o.GetPrioritet()) {
 							primerOpz += Simv.top().GetZnak();
 							Simv.pop();
 						}
@@ -49,13 +49,14 @@
 					Simv.push(o);
 				
 				}
-				if ((Simv.top().GetPrioritet() < o.GetPrioritet()) || (o.GetZnak() == '(')) {
+				if ((Simv.top().GetPrioritet() < o.GetPrioritet())) {
 					Simv.push(o);
 
 				}
 			}
 		}
 		else {
+			
 			Simv.push(o);
 		}
 	}
